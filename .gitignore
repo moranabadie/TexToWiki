@@ -6,3 +6,4 @@ example/compiled/*
 !example/compiled/empty
 *.log
 *.tex.aux
+compiled/
