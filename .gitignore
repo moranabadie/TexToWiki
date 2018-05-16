@@ -1,1 +1,8 @@
 *.pyc
+.project
+.pydevproject
+monrapport
+example/compiled/*
+!example/compiled/empty
+*.log
+*.tex.aux
