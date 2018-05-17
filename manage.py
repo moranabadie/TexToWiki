@@ -27,7 +27,7 @@ if __name__ == "__main__":
             for chapter in chapters:
                 for sub in chapter.list:
                     compileHTML(sub, dir_path)
-            new_path = compileRootHTML(dir_path, filename)    
+            new_path = compileRootHTML(dir_path, filename, folder)    
             clickJSReplacement(dir_path, chapters, new_path)
             doc_replacement(dir_path, chapters)
             

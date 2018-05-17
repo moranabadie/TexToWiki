@@ -2,4 +2,24 @@
 .title {
 font-family: 'Roboto Slab', serif;
 font-size: 40px;
+color:#00688d;
+text-align: center;
+}
+.subtitle {
+font-family: 'Roboto Slab', serif;
+font-size: 20px;
+color:#888;
+text-align: center;
+}
+.author {
+font-family: 'Roboto Slab', serif;
+font-size: 20px;
+color:#888;
+text-align: left;
+}
+.time {
+font-family: 'Roboto Slab', serif;
+font-size: 18px;
+color:#888;
+text-align: left;
 }
