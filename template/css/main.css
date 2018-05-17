@@ -14,7 +14,7 @@ margin: 0;
 }
 .bg {
     /* The image used */
-    background-image: url("img/bg.png");
+    background-image: url("../img/bg.png");
 
     /* Full height */
     height: 100%;

@@ -1,7 +1,7 @@
 from distutils.dir_util import copy_tree
 import os 
 
-from HTMLCoverter.compileHTML import compileHTML
+from HTMLCoverter.compileHTML import compileHTML, compileRootHTML
 from Parser.FindFolderName import find_folder
 from Parser.InputReader import input_reader
 from TemplateManagement.ManageReader import clickJSReplacement
@@ -27,8 +27,8 @@ if __name__ == "__main__":
             for chapter in chapters:
                 for sub in chapter.list:
                     compileHTML(sub, dir_path)
-                 
-            clickJSReplacement(dir_path, chapters)
+            new_path = compileRootHTML(dir_path, filename)    
+            clickJSReplacement(dir_path, chapters, new_path)
             doc_replacement(dir_path, chapters)
             
         

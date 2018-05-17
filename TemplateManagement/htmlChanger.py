@@ -10,7 +10,6 @@ def doc_replacement(dir_path, chapters):
             f.write(new_d)
             f.close()
 def _link_manager(chapters):
-    first = True
     rep = ""
  
     index_chap = 1

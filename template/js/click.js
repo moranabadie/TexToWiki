@@ -1,4 +1,7 @@
 function parser(to) {
+	if (to ==0) {
+        return "NAMECORE"
+    }
 	TOREPLACE
 
 }
