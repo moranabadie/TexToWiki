@@ -1,15 +1,16 @@
-def chapterReader(stri):
-    subL = stri.split("% SUB ")
-    chapterNames = []
-    chapterContent = []
-    for sub in subL:
+def chapter_reader(stri):
+    lis = stri.split("% SUB ")
+    chapter_names = []
+    chapter_content = []
+    for sub in lis:
         if sub != "":
-            nameFinder = sub.split("\n")
-            if len(nameFinder) > 1:
-                nameChap = nameFinder[0]
-                chapterNames.append(nameChap)
+            name_finder = sub.split("\n")
+            if len(name_finder) > 1:
+                name_chap = name_finder[0]
+                chapter_names.append(name_chap)
+                print(sub[len(name_chap):])
+                chapter_content.append(sub[len(name_chap):])
+                print(chapter_content)
                 
-                chapterContent.append(sub[len(nameChap):])
-                
-    return  [chapterNames, chapterContent]
+    return  [chapter_names, chapter_content]
                 

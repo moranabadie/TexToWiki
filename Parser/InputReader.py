@@ -1,6 +1,6 @@
 import os
 
-from Parser.ChapterReader import chapterReader
+from Parser.ChapterReader import chapter_reader
 from Parser.FindFolderName import find_folder
 from Utility.Chapter import Chapter
 from Utility.UnicID import UnicID
@@ -21,31 +21,33 @@ def input_reader(data, dir_path, folder):
         name_file = data[i+1:j]
         new_file = folder + "/"+ name_file +".tex"
         [_, chap_name] = find_folder(new_file)
-        chapter = Chapter(name_file)
+        chapter = Chapter(chap_name.replace(".tex", ""))
         rep.append(chapter)
         
         with open(new_file, 'r') as myfile:
            
             data=myfile.read()
-            [chapter_names, chapter_content] = chapterReader(data)
-            _write_chapters(dir_path, name_file, chapter_names, chapter_content, unic_id, chapter, chap_name)
+            [chapter_names, chapter_content] = chapter_reader(data)
+            _write_chapters(dir_path, chapter_names, chapter_content, unic_id, chapter, chap_name)
             
         
     return rep
             
-def _write_chapters(dir_path, name_file, chapter_names, chapter_content, unic_id, chapter_object, chap_name):
+def _write_chapters(dir_path, chapter_names, chapter_content, unic_id, chapter_object, chap_name):
     index = 0
     for chapter in chapter_names:
-        chapter_content = chapter_content[index]
+       
+        chapter_conten = chapter_content[index]
+
         folder_name = dir_path + "/compiled/pages" + chap_name.replace(".tex","") + "/"
         if not os.path.exists(folder_name):
             os.makedirs(folder_name)
         file_link =  folder_name + chapter + "__"  + str(unic_id.get()) + ".tex"
         with open(file_link,'w') as f:
-            f.write(chapter_content)
+            f.write(chapter_conten)
             f.close()
    
-            
+           
             chapter_object.add(chapter, file_link)
         index += 1
 def _substring_indexes(substring, string):

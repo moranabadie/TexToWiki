@@ -4,6 +4,8 @@ import os
 from HTMLCoverter.compileHTML import compileHTML
 from Parser.FindFolderName import find_folder
 from Parser.InputReader import input_reader
+from TemplateManagement.ManageReader import clickJSReplacement
+from TemplateManagement.htmlChanger import doc_replacement
 
 
 if __name__ == "__main__":
@@ -26,7 +28,8 @@ if __name__ == "__main__":
                 for sub in chapter.list:
                     compileHTML(sub, dir_path)
                  
-            #clickJSReplacement(dir_path, links)
+            clickJSReplacement(dir_path, chapters)
+            doc_replacement(dir_path, chapters)
             
         
         
