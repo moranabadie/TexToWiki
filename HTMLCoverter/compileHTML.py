@@ -1,6 +1,8 @@
 import os
 
-def compileHTML(file, dir_path, name):
-    
-    os.system("pandoc -s -c css.css -A footer.html " + file +" -o "+ dir_path + "/compiled/pages/" + name.replace(".tex", "")+ ".html")
+def compileHTML(sub, dir_path):
+    file = sub.file_link
+    code = "pandoc -s -c css.css -A footer.html \"" + file +"\" -o \"" +file.replace(".tex", "")+ ".html\""
+    print(code)
+    os.system(code)
     
