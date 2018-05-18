@@ -1,6 +1,7 @@
 from distutils.dir_util import copy_tree
 import os 
 
+from HTMLCoverter.HTMLSizer import html_sizer
 from HTMLCoverter.compileHTML import compileHTML, compileRootHTML
 from Parser.FindFolderName import find_folder
 from Parser.InputReader import input_reader
@@ -35,6 +36,6 @@ if __name__ == "__main__":
             new_path = compileRootHTML(dir_path, filename, folder)    
             clickJSReplacement(dir_path, chapters, new_path)
             doc_replacement(dir_path, chapters)
-            
+            html_sizer(chapters, dir_path, filename)
         
         

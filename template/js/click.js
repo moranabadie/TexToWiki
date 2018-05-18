@@ -7,7 +7,9 @@ function parser(to) {
 }
 
 function f(th) {
-$( "#content" ).load(parser(parseInt(th.attr( 'to' ))) , function() {
+var currenth = $( "#content" ).height();
+	$( "#content" ).load(parser(parseInt(th.attr( 'to' ))) , function() {
+		$( "#fullbody" ).height(currenth);
   $( ".clink" ).click(function() {
 
   f($(this));
