@@ -11,6 +11,7 @@ def input_reader(data, dir_path, folder):
     l = _substring_indexes("\input", data)
     rep = []
     unic_id = UnicID()
+    index = 1
     for i in l:
         
         while i < le and data[i] != "{":
@@ -21,18 +22,37 @@ def input_reader(data, dir_path, folder):
         name_file = data[i+1:j]
         new_file = folder + "/"+ name_file +".tex"
         [_, chap_name] = find_folder(new_file)
-        chapter = Chapter(chap_name.replace(".tex", ""))
-        rep.append(chapter)
+        
+        
         
         with open(new_file, 'r') as myfile:
            
             data=myfile.read()
-            [chapter_names, chapter_content] = chapter_reader(data)
+            name_chapter, data  = _name_finder(data, new_file)
+            chapter = Chapter(name_chapter)
+            rep.append(chapter)
+            
+            [chapter_names, chapter_content] = chapter_reader(data, index, name_chapter)
             _write_chapters(dir_path, chapter_names, chapter_content, unic_id, chapter, chap_name)
             
-        
+        index += 1
     return rep
-            
+def _name_finder(data, new_file):
+    lis = data.split("\\chapter{")
+    if len(lis) > 1:
+        
+        lis = lis[1].split("}")
+        
+        
+        if len(lis) > 1:
+            name_chapter = lis[0]
+            data = data.replace("\\chapter{"+name_chapter+"}","")
+        else:
+            return new_file.replace(".tex", "").replace("/", "")
+    else:
+        return new_file.replace(".tex", "").replace("/", "")
+    
+    return name_chapter, data 
 def _write_chapters(dir_path, chapter_names, chapter_content, unic_id, chapter_object, chap_name):
     index = 0
     for chapter in chapter_names:

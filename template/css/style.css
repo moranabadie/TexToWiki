@@ -27,7 +27,7 @@ h1 {
 font-family: 'Roboto Slab', serif;
 font-size: 25px;
 color:#00688d;
-padding-left:50px;
+padding-left:35px;
 }
 h2 {
 font-family: 'Roboto Slab', serif;
@@ -35,11 +35,24 @@ font-size: 16px;
 color:#00688d;
 padding-left:25px;
 }
+h3 {
+font-family: 'Roboto Slab', serif;
+font-size: 12px;
+color:#00688d;
+padding-left:15px;
+}
 .figure {
 	text-align:center;
 }
 .figure img {
-	width:90%;
+	width:60%;
 	
+	
+}
+.figure .caption {
+font-family: 'Roboto Slab', serif;
+font-size: 10px;
+color:#00688d;
+
 	
 }

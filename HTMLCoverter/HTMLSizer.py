@@ -18,7 +18,7 @@ def html_sizer(chapters, dir_path, filename):
 def _replace_with(data):
     return data.replace("<body>", \
 """<body style="width:99%;height:100%;padding:0px;">
-    <div id="fullbody" style="padding:0px;width:100%;">""")\
+    <div id="fullbody" style="padding:0px 0px 0px 1%;width:99%;">""")\
     .replace("</body>", \
 """</div>
 <script>
