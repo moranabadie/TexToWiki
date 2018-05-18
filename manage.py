@@ -22,6 +22,11 @@ if __name__ == "__main__":
             data=myfile.read()
             [folder, file] = find_folder(filepath)
             copy_tree(dir_path + "/template/", dir_path + "/compiled/")
+            path = folder + "/Figures/"
+            try:
+                copy_tree(path, dir_path + "/compiled/Figures/")
+            except:
+                print(path+ " not found")
             chapters = input_reader(data, dir_path, folder)
             
             for chapter in chapters:
