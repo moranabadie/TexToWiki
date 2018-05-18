@@ -27,4 +27,11 @@ h1 {
 font-family: 'Roboto Slab', serif;
 font-size: 25px;
 color:#00688d;
+padding-left:50px;
+}
+h2 {
+font-family: 'Roboto Slab', serif;
+font-size: 16px;
+color:#00688d;
+padding-left:25px;
 }
