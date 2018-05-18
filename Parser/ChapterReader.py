@@ -13,19 +13,19 @@ def chapter_reader(stri, index, name_chapter):
             if len(name_finder) > 1:
                 name_chap = name_finder[0]
                 chapter_names.append(name_chap)
-                
+                roman_index = write_roman(index) + ". " 
+                title_index =  roman_index + write_upper(index_chap)+". "
                 chapter_content.append(\
                     sub_replace(\
                                 "\\chapter{" + \
-                                write_roman(index) + ". "+name_chapter + "}" +\
+                                roman_index + name_chapter + "}" +\
                                 "\\section{" + \
-                                write_roman(index) + ". " + \
-                                write_upper(index_chap)+". " + sub))
+                                title_index + sub, title_index))
                 index_chap += 1
                 
     return  [chapter_names, chapter_content]
 
-def sub_replace(stri):
+def sub_replace(stri, title_index):
     
     stri = stri + " "
     lis = stri.split("\\subsection{")
@@ -38,7 +38,7 @@ def sub_replace(stri):
             first = False
         else:
             first = False
-            stri += "\\subsection{" + write_upper(indexx).lower()+". " + sub
+            stri += "\\subsection{" + title_index + write_upper(indexx).lower()+". " + sub
             indexx += 1
     
     return stri
