@@ -6,7 +6,7 @@ from Parser.FindFolderName import find_folder
 
 def compileHTML(sub, dir_path):
     file = sub.file_link
-    newHTMLNAME = file.replace(".tex", ".html").replace(" ", "_")
+    newHTMLNAME = file.replace(".tex", ".html")
     code = "pandoc -s \"" + file +"\" -o \"" +newHTMLNAME + "\""
     sub.htmlLink = newHTMLNAME
     os.system(code)

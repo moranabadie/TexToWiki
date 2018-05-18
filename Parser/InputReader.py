@@ -1,4 +1,5 @@
 import os
+import re
 
 from Parser.ChapterReader import chapter_reader
 from Parser.FindFolderName import find_folder
@@ -27,12 +28,12 @@ def input_reader(data, dir_path, folder):
         
         with open(new_file, 'r') as myfile:
            
-            data=myfile.read()
-            name_chapter, data  = _name_finder(data, new_file)
+            file_content=myfile.read()
+            name_chapter, file_content  = _name_finder(file_content, new_file)
             chapter = Chapter(name_chapter)
             rep.append(chapter)
             
-            [chapter_names, chapter_content] = chapter_reader(data, index, name_chapter)
+            [chapter_names, chapter_content] = chapter_reader(file_content, index, name_chapter)
             _write_chapters(dir_path, chapter_names, chapter_content, unic_id, chapter, chap_name)
             
         index += 1
@@ -58,11 +59,12 @@ def _write_chapters(dir_path, chapter_names, chapter_content, unic_id, chapter_o
     for chapter in chapter_names:
        
         chapter_conten = chapter_content[index]
-
-        folder_name = dir_path + "/compiled/pages" + chap_name.replace(".tex","") + "/"
+        
+        folder_name = dir_path + "/compiled/pages/" + \
+        re.sub('[^0-9a-zA-Z]+', '_',chap_name.replace(".tex","").replace("/","")) + "/"
         if not os.path.exists(folder_name):
             os.makedirs(folder_name)
-        file_link =  folder_name + chapter + "__"  + str(unic_id.get()) + ".tex"
+        file_link =  folder_name + re.sub('[^0-9a-zA-Z]+', '_',chapter) + "__"  + str(unic_id.get()) + ".tex"
         with open(file_link,'w') as f:
             f.write(chapter_conten)
             f.close()
