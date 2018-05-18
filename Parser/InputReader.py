@@ -7,12 +7,14 @@ from Utility.Chapter import Chapter
 from Utility.UnicID import UnicID
 
 
-def input_reader(data, dir_path, folder):
+def input_reader(data, dir_path, folder, links):
     le = len(data)
     l = _substring_indexes("\input", data)
     rep = []
     unic_id = UnicID()
     index = 1
+    
+    global_index = 0
     for i in l:
         
         while i < le and data[i] != "{":
@@ -33,7 +35,8 @@ def input_reader(data, dir_path, folder):
             chapter = Chapter(name_chapter)
             rep.append(chapter)
             
-            [chapter_names, chapter_content] = chapter_reader(file_content, index, name_chapter)
+            [chapter_names, chapter_content, global_index] = \
+            chapter_reader(file_content, index, name_chapter, links, global_index)
             _write_chapters(dir_path, chapter_names, chapter_content, unic_id, chapter, chap_name)
             
         index += 1

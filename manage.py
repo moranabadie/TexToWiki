@@ -7,6 +7,7 @@ from Parser.FindFolderName import find_folder
 from Parser.InputReader import input_reader
 from TemplateManagement.ManageReader import clickJSReplacement
 from TemplateManagement.htmlChanger import doc_replacement
+from Utility.Links import Links
 
 
 if __name__ == "__main__":
@@ -24,11 +25,12 @@ if __name__ == "__main__":
             [folder, file] = find_folder(filepath)
             copy_tree(dir_path + "/template/", dir_path + "/compiled/")
             path = folder + "/Figures/"
+            links = Links()
             try:
                 copy_tree(path, dir_path + "/compiled/Figures/")
             except:
                 print(path+ " not found")
-            chapters = input_reader(data, dir_path, folder)
+            chapters = input_reader(data, dir_path, folder, links)
             
             for chapter in chapters:
                 for sub in chapter.list:
@@ -36,6 +38,6 @@ if __name__ == "__main__":
             new_path = compileRootHTML(dir_path, filename, folder)    
             clickJSReplacement(dir_path, chapters, new_path)
             doc_replacement(dir_path, chapters)
-            html_sizer(chapters, dir_path, filename)
+            html_sizer(chapters, dir_path, filename, links)
         
         

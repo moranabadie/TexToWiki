@@ -13,12 +13,18 @@ var currenth = $( "#content" ).height();
   $( ".clink" ).click(function() {
 
   f($(this));
-
+  
 });
+  $( ".button" ).click(function() {
+		
+	  f($(this));
+
+	 });
 });
 }
 
 $( ".button" ).click(function() {
+	
  f($(this));
 
 });

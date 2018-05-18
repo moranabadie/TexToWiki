@@ -2,6 +2,10 @@
 body {
 	font-family: 'Vollkorn', serif;
 }
+.liketext {
+	text-decoration: color:inherit;
+	color:inherit;
+}
 .title {
 font-family: 'Roboto Slab', serif;
 font-size: 40px;
@@ -57,5 +61,14 @@ font-family: 'Roboto Slab', serif;
 font-size: 10px;
 color:#00688d;
 
+	
+}
+.fakelink {
+	color:#900088;
+	
+}
+.fakelink:hover {
+	color:#B0B800;
+	 text-decoration: underline;
 	
 }
