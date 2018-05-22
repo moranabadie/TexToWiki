@@ -3,13 +3,43 @@ function parser(to) {
         return "NAMECORE"
     }
 	TOREPLACE
-
+	return "";
+}
+function parserName(to) {
+	if (to ==0) {
+        return "Intro"
+    }
+	TRPLPA
+	return "";
 }
 
+function bottomLink(id_obj) {
+	
+	var inside_elem = "";
+
+	if (id_obj > 0) {
+		inside_elem = inside_elem + 
+		'<font class="button fakelink" to="'
+		+ (id_obj - 1).toString() + 
+		'"><img src="img/prev.png" style="width:18px; position:relative; top:3px;" /> ' + parserName(id_obj - 1) + "</font>";
+	}
+	var nameNext =parserName(id_obj + 1);
+	if (nameNext != "") {
+		inside_elem = inside_elem + 
+		'<div style="float:right;"><font class="button fakelink" to="'
+		+ (id_obj + 1).toString() + 
+		'">' + nameNext + ' <img src="img/next.png" style="width:18px; position:relative; top:3px;" /></font></div>';
+	}
+
+	$( "#linkAuto" ).html(inside_elem);
+}
 function f(th) {
-	console.log("yo");
+
 var currenth = $( "#content" ).height();
-	$( "#content" ).load(parser(parseInt(th.attr( 'to' ))) , function() {
+var id_obj = parseInt(th.attr( 'to' ));
+
+bottomLink(id_obj);
+	$( "#content" ).load(parser(id_obj) , function() {
 		
 		$( "#fullbody" ).height(currenth);
 			
