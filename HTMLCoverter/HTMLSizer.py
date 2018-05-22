@@ -27,7 +27,8 @@ def _replace_with(data, links):
     .replace("</body>", \
 """</div>
 <script>
-new SimpleBar($('#fullbody')[0]);
+var simpleBz =new SimpleBar($('#fullbody')[0]);
+
 </script>
 </body>""").replace("<a", '<a target="_blank" '), links)
     
@@ -48,11 +49,11 @@ def link_manager_aux(data, ii, links):
         else:
             
             if ii == 0:
-                data += '<a class="liketext" name="'
+                data += '<a class="liketext" id="'
                 lii = i.split(UNICSTARTNAMEEND)
             else:
                 
-                data += '<font class="button fakelink" href="#'
+                data += '<font class="button fakelink" link="#'
                 lii = i.split(LINKEDUNICSTARTNAMEEND)
             first2 = True
             for l in lii:
