@@ -6,6 +6,11 @@ body {
 	text-decoration: color:inherit;
 	color:inherit;
 }
+p {
+	text-indent: 10px;
+	text-align:justify;
+	
+}
 .title {
 font-family: 'Roboto Slab', serif;
 font-size: 40px;
@@ -49,6 +54,9 @@ color:#00688d;
 padding-left:20px;
 }
 .figure {
+	text-align:center;
+}
+.figure p {
 	text-align:center;
 }
 .figure img {
@@ -98,8 +106,6 @@ a:active {
     color: #a00;
     text-decoration: none;
 }
-p {
-	text-indent: 10px;
-	text-align:justify;
+
 	
-}
+
