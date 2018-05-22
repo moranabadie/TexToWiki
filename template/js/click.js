@@ -7,14 +7,18 @@ function parser(to) {
 }
 
 function f(th) {
+	console.log("yo");
 var currenth = $( "#content" ).height();
 	$( "#content" ).load(parser(parseInt(th.attr( 'to' ))) , function() {
 		
 		$( "#fullbody" ).height(currenth);
 			
 			if (th.attr( 'link' ) != null){
-				
-				simpleBz.getScrollElement().scrollTop = $(th.attr( 'link' ) ).offset().top;
+				var v = $(th.attr( 'link' ) ).offset().top - 40;
+				if (v < 0) {
+					v = $(th.attr( 'link' ) ).offset().top;
+				}
+				simpleBz.getScrollElement().scrollTop = v;
 			}
 		   
 		
@@ -23,8 +27,8 @@ var currenth = $( "#content" ).height();
   f($(this));
   
 });
-  $( ".button" ).click(function() {
-		
+  $( ".fakelink" ).click(function() {
+	
 	  f($(this));
 
 	 });
