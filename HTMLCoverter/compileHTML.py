@@ -4,13 +4,13 @@ from time import strftime, gmtime
 from Parser.FindFolderName import find_folder
 
 
-def compileHTML(sub, dir_path):
+def compile_html(sub, dir_path):
     file = sub.file_link
-    newHTMLNAME = file.replace(".tex", ".html")
-    code = "pandoc -s \"" + file +"\" -o \"" +newHTMLNAME + "\""
-    sub.htmlLink = newHTMLNAME
+    new_name = file.replace(".tex", ".html")
+    code = "pandoc -s \"" + file +"\" -o \"" +new_name + "\""
+    sub.htmlLink = new_name
     os.system(code)
-def compileRootHTML(dir_path, filename, folder):
+def compile_root(dir_path, filename, folder):
     filename = dir_path + "/" + filename
     [_, file] = find_folder(filename)
     """

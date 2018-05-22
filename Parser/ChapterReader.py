@@ -12,9 +12,15 @@ def chapter_reader(stri, index, name_chapter, links, global_index):
     chapter_names = []
     chapter_content = []
     index_chap = 0
+    first = True
     for sub in lis:
-        if sub != "":
+        
+        if first:
+            first = False
+            pref = sub
+        else:
             name_finder = sub.split("}")
+            
             if len(name_finder) > 1:
                 name_chap = name_finder[0]
                 chapter_names.append(name_chap)
@@ -23,11 +29,12 @@ def chapter_reader(stri, index, name_chapter, links, global_index):
                 chapter_content.append(\
                     sub_replace(\
                                 "\\chapter{" + \
-                                roman_index + name_chapter + "}" +\
+                                roman_index + name_chapter + "}" + pref +\
                                 "\\section{" + \
                                 title_index + sub, title_index, links, global_index))
                 index_chap += 1
                 global_index += 1
+                pref = ""
     return  [chapter_names, chapter_content, global_index]
 
 def sub_replace(stri, title_index, links, global_index):

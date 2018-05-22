@@ -34,19 +34,19 @@ h1 {
 font-family: 'Roboto Slab', serif;
 font-size: 25px;
 color:#00688d;
-padding-left:35px;
+padding-left:40px;
 }
 h2 {
 font-family: 'Roboto Slab', serif;
 font-size: 16px;
 color:#00688d;
-padding-left:25px;
+padding-left:30px;
 }
 h3, h4, h5 {
 font-family: 'Roboto Slab', serif;
 font-size: 12px;
 color:#00688d;
-padding-left:15px;
+padding-left:20px;
 }
 .figure {
 	text-align:center;
@@ -65,10 +65,41 @@ color:#00688d;
 }
 .fakelink {
 	color:#900088;
+	cursor: pointer;
 	
 }
 .fakelink:hover {
 	color:#B0B800;
 	 text-decoration: underline;
+	
+}
+
+
+/* unvisited link */
+a:link {
+    color: #a00;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #a00;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+    color: #a00;
+    text-decoration: none;
+}
+p {
+	text-indent: 10px;
+	text-align:justify;
 	
 }

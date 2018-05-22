@@ -11,7 +11,7 @@ def html_sizer(chapters, dir_path, filename, links):
             files.append(sub.htmlLink)
     
     for file_name in files:
-       
+        
         with open(file_name , 'r') as myfile:
             data=myfile.read()
             new_d = _replace_with(data, links)
@@ -23,13 +23,13 @@ def html_sizer(chapters, dir_path, filename, links):
 def _replace_with(data, links):
     return link_manager(data.replace("<body>", \
 """<body style="width:99%;height:100%;padding:0px;">
-    <div id="fullbody" style="padding:0px 0px 0px 1%;width:99%;">""")\
+    <div id="fullbody" style="padding:0px 1% 0px 1%;width:98%;height:100%;">""")\
     .replace("</body>", \
 """</div>
 <script>
 new SimpleBar($('#fullbody')[0]);
 </script>
-</body>"""), links)
+</body>""").replace("<a", '<a target="_blank" '), links)
     
 def link_manager(data, links):
     data = link_manager_aux(data, 0, links)

@@ -1,12 +1,3 @@
-a {
-    color: #00a;
-}
-
-/* mouse over link */
-a:hover {
-    color: hotpink;
-}
-
 
 body, html {
     height: 100%;
@@ -63,9 +54,7 @@ font-family: 'Jua', sans-serif;
     cursor: pointer;
 width:100%;
 }
-h1 {
-font-family: 'Poor Story', cursive;
-}
+
 button.button:hover {
     background-color: #ccc; 
 }
