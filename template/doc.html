@@ -65,10 +65,19 @@ $( ".fakelink" ).click(function() {
 	
 	  f($(this));
 
+
 	
 });
 
 });
+
+var initialLink = 0;
+
+window.setInterval(function(){
+  	updateLink();
+}, 500);
+
+
 
 
 </script>
