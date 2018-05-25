@@ -8,10 +8,9 @@ from Parser.InputReader import input_reader
 from TemplateManagement.ManageReader import clickJSReplacement
 from TemplateManagement.htmlChanger import doc_replacement
 from Utility.Links import Links
-
+import sys
 
 if __name__ == "__main__":
-    import sys
     if len(sys.argv) == 2:
         filename = sys.argv[1]
         dir_path = os.path.dirname(os.path.realpath(__file__))

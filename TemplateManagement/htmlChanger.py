@@ -7,7 +7,6 @@ def doc_replacement(dir_path, chapters):
         data=myfile.read()
         new_d = data.replace("TOREPLACE", _link_manager(chapters))
         with open(file_name,'w') as f:
-            
             f.write(new_d)
             f.close()
 def _link_manager(chapters):

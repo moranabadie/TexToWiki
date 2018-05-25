@@ -33,6 +33,10 @@ var simpleBz =new SimpleBar($('#fullbody')[0]);
 </body>""").replace("<a", '<a target="_blank" '), links)
     
 def link_manager(data, links):
+    for i in links.refs:
+        span = '<span data-label="'+ i[0]+'">'
+        data = data.replace(i[1], i[0]).replace(span, span + " <b>" + i[0] + "</b>")
+        
     data = link_manager_aux(data, 0, links)
     return link_manager_aux(data, 1, links)
 def link_manager_aux(data, ii, links):

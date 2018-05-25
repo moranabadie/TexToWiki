@@ -35,6 +35,7 @@ function bottomLink(id_obj) {
 }
 
 function linkReplace(id_obj) {
+	
     var li = window.location.href.split("?");
     if (li.length > 1) {
         return li[0] + "#" + id_obj.toString();
@@ -72,7 +73,7 @@ function faux2(id_obj, thlink, push) {
         }
        
         if (thlink != null) {
-            history.pushState({}, '', linkReplace(id_obj) + thlink);
+            //history.pushState({}, '', linkReplace(id_obj) + thlink);
             var v = $(thlink).offset().top - 40;
             if (v < 0) {
                 v = $(thlink).offset().top;

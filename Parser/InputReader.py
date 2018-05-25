@@ -7,7 +7,10 @@ from Utility.Chapter import Chapter
 from Utility.UnicID import UnicID
 
 
+
+
 def input_reader(data, dir_path, folder, links):
+    
     le = len(data)
     l = _substring_indexes("\input", data)
     rep = []
@@ -15,6 +18,8 @@ def input_reader(data, dir_path, folder, links):
     index = 1
     
     global_index = 0
+    
+        
     for i in l:
         
         while i < le and data[i] != "{":

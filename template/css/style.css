@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Vollkorn');
+img {
+	width:20%;
+}
 body {
 	font-family: 'Vollkorn', serif;
 }

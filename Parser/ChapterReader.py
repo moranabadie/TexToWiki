@@ -56,7 +56,29 @@ def sub_replace(stri, title_index, links, global_index):
     return sub_replace_links(stri, links, global_index)
 def sub_replace_links(stri, links, global_index):
     stri = sub_replace_links_aux(stri, links, global_index, 0)
+    stri = ref_manager(stri, links)
     return sub_replace_links_aux(stri, links, global_index, 1)
+def ref_manager(stri, links):
+   
+    l = stri.split("\\begin{figure}")
+    first = True
+    for i in l:
+        if first:
+            first = False
+        else:
+            l2 = i.split("\\end{figure}")
+            
+            l2= l2[0].split("\\label{")
+            first2 = True
+            for j in l2:
+                if first2:
+                    first2 = False
+                else:
+                    l3= j.split("}")
+                    namefig =l3[0]
+                    stri = stri.replace(namefig,links.get_nb_fig(namefig))
+            
+    return stri
 def sub_replace_links_aux(stri, links, global_index, mode_aux):
     
     stri = stri + " "
