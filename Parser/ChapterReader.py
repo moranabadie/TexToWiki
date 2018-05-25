@@ -62,23 +62,53 @@ def ref_manager(stri, links):
    
     l = stri.split("\\begin{figure}")
     first = True
+    new_str = ''
     for i in l:
         if first:
             first = False
+            new_str = i
         else:
+            new_str += "\\begin{figure}"
             l2 = i.split("\\end{figure}")
-            
-            l2= l2[0].split("\\label{")
-            first2 = True
-            for j in l2:
-                if first2:
-                    first2 = False
+            first7 = True
+            for kk in l2:
+                if first7:
+                    first7 = False
+                    
+                    if "\\begin{minipage}" in kk:
+                        l2 = kk.split("\\begin{minipage}")
+                        first2 = True
+                        for j in l2:
+                            if first2:
+                                first2 = False
+                            else:
+                                l3 = j.split("}")
+                                kk = kk.replace("\\begin{minipage}" + l3[0] + '}', "")
+                        
+                    kk = kk.replace("\\end{minipage}", "") 
+                    l2= kk.split("\\label{")
+                    
+                    
+                    first2 = True
+                    for j in l2:
+                        if first2:
+                            new_str +=j
+                            first2 = False
+                        else:
+                            new_str += "\\label{"
+                            l3= j.split("}")
+                            first3 = True
+                            for k in l3:
+                                if first3:
+                                    first3 = False
+                                    new_str += links.get_nb_fig(k)
+                                else:
+                                    new_str += "}" + k
                 else:
-                    l3= j.split("}")
-                    namefig =l3[0]
-                    stri = stri.replace(namefig,links.get_nb_fig(namefig))
+                    new_str += "\\end{figure}" + kk
+                  
             
-    return stri
+    return new_str
 def sub_replace_links_aux(stri, links, global_index, mode_aux):
     
     stri = stri + " "
