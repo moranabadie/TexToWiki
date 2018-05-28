@@ -35,7 +35,7 @@ def input_reader(data, dir_path, folder, links):
         
         with open(new_file, 'r') as myfile:
            
-            file_content=myfile.read()
+            file_content=myfile.read().replace("\\textcolor", "\\color")
             name_chapter, file_content  = _name_finder(file_content, new_file)
             chapter = Chapter(name_chapter)
             rep.append(chapter)

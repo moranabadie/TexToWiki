@@ -30,7 +30,10 @@ def _replace_with(data, links):
 var simpleBz =new SimpleBar($('#fullbody')[0]);
 
 </script>
-</body>""").replace("<a", '<a target="_blank" '), links)
+<script>
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+</body>""").replace("<a", '<a target="_blank" '), links).replace("<table>",'<table class="insidetable">')
     
 def link_manager(data, links):
     for i in links.refs:

@@ -114,6 +114,50 @@ a:active {
     color: #a00;
     text-decoration: none;
 }
+/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+.insidetable {
+  width: 100%;
+  background-color: #fff;
+}
+
+.insidetable th, td {
+  font-weight: unset;
+  padding: 10px;
+}
+
+.insidetable td {
+   font-family: Montserrat-Regular;
+  font-size: 14px;
+  color: #404040;
+  line-height: 1.4;
+}
+.insidetable .even {
+  background-color: #eaf8e6;
+}
+
+.insidetable  th {
+  font-family: Montserrat-Medium;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1.4;
+  text-transform: uppercase;
+
+  background-color: #333333;
+}
+
+.insidetable tr:hover {
+  background-color: #83d160;
+  color: #fff;
+}
+
+
+
+.insidetable td:hover {
+  background-color: #57b846;
+  color: #fff;
+  }
+
 
 	
 
