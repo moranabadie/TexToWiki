@@ -57,7 +57,33 @@ def sub_replace(stri, title_index, links, global_index):
 def sub_replace_links(stri, links, global_index):
     stri = sub_replace_links_aux(stri, links, global_index, 0)
     stri = ref_manager(stri, links)
+    stri = links.commands + stri
+    new_command_manager(stri, links)
     return sub_replace_links_aux(stri, links, global_index, 1)
+def new_command_manager(stri, links):
+    l = stri.split("\\newcommand")
+    first = True
+    for i in l:
+        if first:
+            first = False
+        else:
+            command = "\\newcommand" 
+            nb = 0
+            first_c = True
+            for cha in i: 
+                command += cha
+                if cha == "{":
+                    nb += 1
+                if cha == "}":
+                    if nb == 1:
+                        if first_c:
+                            first_c = False
+                            nb -= 1
+                        else:
+                            break
+                    else:
+                        nb -= 1
+            links.add_command(command)
 def ref_manager(stri, links):
    
     l = stri.split("\\begin{figure}")

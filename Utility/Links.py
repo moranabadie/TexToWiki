@@ -3,6 +3,7 @@ class Links():
         self.list = []
         self.nb_fig = 0
         self.refs = []
+        self.commands = "\n"
     def get_nb_fig(self, namefig):
         self.nb_fig = self.nb_fig + 1
         self.refs.append(["Figure " + str(self.nb_fig), namefig])
@@ -14,6 +15,8 @@ class Links():
             if l.ref == n:
                 return l
         return None
+    def add_command(self, c):
+        self.commands += "\n" + c
 class Link():
     def __init__(self, ref, chapter):
         self.ref = ref
